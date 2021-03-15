@@ -1,5 +1,7 @@
 const path = require('path');
 const express = require('express');
+const cookieParser = require('cookie-parser');
+
 const app = express();
 const route = require('./routes');
 
@@ -11,6 +13,9 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+// User cookie
+app.use(cookieParser())
 
 // connect mongooseDB
 const db = require('./config/db/index');
