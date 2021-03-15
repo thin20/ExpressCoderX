@@ -20,20 +20,6 @@ class UserController {
 
     addUser(req, res, next) {
         const user = new User(req.body);
-        const errors = [];
-        if (!req.body.name) {
-            errors.push("Name is required.");
-        }
-        if (!req.body.age) {
-            errors.push("Phone is required");
-        }
-        if (errors.length) {
-            res.render('users/create', {
-                errors: errors,
-                values: req.body
-            });
-            return;
-        }
         user.save()
             .then(() => {
                 res.redirect('/users');
