@@ -6,9 +6,11 @@ block content
             each product in products
                 .col.col-lg-3.col-md-4.col-sm-6.col-12
                     .card.mt-4
-                        img.card-img-top(src=product.image, alt=product.name)
+                        a(href="/products/" + product.slug)    
+                            img.card-img-top(src=product.image, alt=product.name)
                         .card-body
-                            h5.card-title #{product.name}
+                            a(href="/products/" + product.slug)   
+                                h5.card-title #{product.name}
                             p.card-text #{product.description}
                             a.btn.btn-primary(href='#') Buy now
 

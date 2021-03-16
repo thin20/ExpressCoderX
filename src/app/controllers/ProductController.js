@@ -13,7 +13,7 @@ class ProductController {
                 const page = parseInt(req.query.page) || 1;
                 const start = (page - 1) * perPage;
                 const end = perPage * page;
-                const length = Math.ceil(arrProduct.length / 8);
+                const length = Math.ceil(arrProduct.length / perPage);
 
                 res.render('products/index', {
                     products: arrProduct.slice(start, end),
@@ -23,6 +23,15 @@ class ProductController {
                     n: 1
                 });
             }).catch(errors => { })
+    }
+
+    show(req, res, next) {
+        Product.findOne({ slug: req.params.slug })
+            .then(product => {
+                res.render('products/show', {
+                    product: mongooseToObject(product)
+                })
+            }).catch(err => { })
     }
 }
 

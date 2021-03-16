@@ -1,0 +1,14 @@
+extends ../layouts/common
+
+block content
+    .row 
+        if product
+            .col.col-12 
+                h2= product.name
+                img(src=product.image)
+                h4= product.description
+                p Price:  #{product.price}$
+
+                a.btn.btn-primary(href="#") Mua ngay
+                br
+                a.btn.btn-light.mt-2(href="/products") Back
