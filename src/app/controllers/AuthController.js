@@ -42,7 +42,7 @@ class AuthController {
                 res.cookie('userId', u._id, {
                     signed: true
                 });
-                res.redirect('/users');
+                res.redirect('/products');
             })
             .catch(err => { });
     }

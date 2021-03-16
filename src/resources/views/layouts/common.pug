@@ -6,14 +6,17 @@ html
         link(rel="stylesheet" href="/styles/custom.css")
         
         body 
-        ul.nav.align-items-center
+        ul.nav.align-items-center.bg-light
             li.nav-item
-                a.nav-link.active(href='/') CoderX
+                a.nav-link.active(href='/') 
+                    h1 CoderX
+            li.nav-item
+                a.nav-link(href='/products') Products
             li.nav-item
                 a.nav-link(href='/users') Users
             if u
                 li.nav-item.ml-auto.mr-4
                     a.nav-link(href='/auth/login')= u.name
 
-        .container.pb-8
+        .container.pt-4
             block content
