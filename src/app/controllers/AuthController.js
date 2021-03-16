@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const md5 = require('md5');
 const { mongooseToObject } = require('../../util/mongoose');
 const { multipleMongooseToObject } = require('../../util/mongoose');
 
@@ -27,7 +28,9 @@ class AuthController {
                     return;
                 }
 
-                if (u.password !== password) {
+                var hashedPassword = md5(password);
+
+                if (u.password !== hashedPassword) {
                     res.render('auth/login', {
                         errors: [
                             "Wrong password."
