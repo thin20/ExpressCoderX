@@ -39,7 +39,9 @@ class AuthController {
                     });
                 }
 
-                res.cookie('userId', u._id);
+                res.cookie('userId', u._id, {
+                    signed: true
+                });
                 res.redirect('/users');
             })
             .catch(err => { });
