@@ -11,9 +11,9 @@ html
                 a.nav-link.active(href='/') CoderX
             li.nav-item
                 a.nav-link(href='/users') Users
-            if user
+            if u
                 li.nav-item.ml-auto.mr-4
-                    a.nav-link(href='/auth/login')= user.name
+                    a.nav-link(href='/auth/login')= u.name
 
         .container.pb-8
             block content
