@@ -19,6 +19,7 @@ class UserController {
     }
 
     addUser(req, res, next) {
+        req.body.avatar = req.file.path.split('\\').slice(6).join('/');
         const user = new User(req.body);
         user.save()
             .then(() => {
@@ -31,7 +32,6 @@ class UserController {
 
     search(req, res, next) {
         var q = req.query.name;
-        console.log(q);
         User.find()
             .then(users => {
                 var matchedUsers = multipleMongooseToObject(users).filter(function (user) {

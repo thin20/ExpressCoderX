@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 const User = new Schema({
     name: { type: String, maxLength: 255, require: true },
     age: { type: String, require: true },
+    avatar: { type: String },
 }, {
     timestamps: true,
 });

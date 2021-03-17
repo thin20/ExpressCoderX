@@ -11,11 +11,14 @@ block content
 
     table.table
         tr 
+            th Avatar 
             th Name 
             th Age 
             th
         each user in users
             tr
+                td
+                    image(src= user.avatar, width= 48)
                 td(class="user")= user.name 
                 td(class="phone")= user.age
                 td 
